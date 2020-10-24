@@ -1,0 +1,23 @@
+YÊU CẦU BÀI THỰC HÀNH 1
+===
+Lọc tín hiệu nhiễu
+1/
+- Sinh (lấy mẫu) tín hiệu liên tục:
+s(t) = 5*sin(2*pi*F*t)
+F/Fs
+F = 1000 Hz, Fs = 16 kHz, độ dài lấy mẫu: 2s
+- Tạo tín hiệu nhiễu: randn(1,N); với N là độ dài tín hiệu đã lấy mẫu (2s -> số mẫu)
+x(t) = s(t) + noise
+- vẽ đồ thị và phát ra loa từng tín hiệu và cả 3 tín hiệu
+2/
+- Bộ lọc: y[n] = 1/M * sum(x[n-i]), i=0,M-1 ; hàm sai phân
+- Tìm và vẽ đồ thị tín hiệu ra y[n] với các giá trị M: 3,5,7,9;
+-- Dịch trái y[n] D=(M-1)/2 mẫu để bù độ trễ pha: y = [y(D+1), zero(1,D)]
+- Tính RMSE giữa y[n] và s(t)
+
+
+*Note: hàm filter (1D) trong matlab
+- filter(b,a,x); trong đó
+-- b: các hệ số của x trong hàm sai phân
+-- a: các hệ số của y trong hàm sai phân
+-- x: tín hiệu đầu vào của hệ thống (filter)
